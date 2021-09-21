@@ -2,40 +2,18 @@
 using System;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 
 namespace NSAPI
 {
-    [Serializable()]
-    public class Message
-    {
-        public Message(string v)
-        {
-            this.Body = v;
-        }
-
-        public string Body { get; set; }
-    }
-
-    public class MessageEventArgs : EventArgs
-    {
-        public Message Msg { get; set; }
-
-        public MessageEventArgs(Message msg)
-        {
-            Msg = msg;
-        }
-    }
-
     /// <summary>
     /// Klasa odpowiedzialna za komunikację aplikacji z serwerem danych
     /// </summary>
     public static class API
     {
         private static string url = "https://n-soft.pl/NSAPI/";
-
-        public enum Methods { LOGIN, VERSION }
 
         private static string _rawResponse;
         public static string RawResponse
@@ -65,13 +43,13 @@ namespace NSAPI
         /// <summary>
         /// Odwołuje się do serwera danych i pobiera informacje poprzez plik JSON wykorzystując metode POST
         /// </summary>
-        /// <param name="method">Wybrana metoda przez użytkownika</param>
+        /// <param name="method">Nazwa funkcji do wykonania</param>
         /// <param name="data">kolekcja parametrów</param>
         /// <returns>Dynamiczny obiekt zawsze z własciwościami:
         /// Data (paczka z danymi), 
         /// Info (Informacja w postaci tekstowej, np opis błędu),
         /// Status (status wykonania: ERROR lub OK)</returns>
-        public static dynamic Query(Methods method, NameValueCollection data)
+        public static dynamic Query(string method, NameValueCollection data)
         {
             _rawResponse = "";
 
@@ -81,6 +59,8 @@ namespace NSAPI
 
                 try
                 {
+                    Log("SENDING DATA: " + JsonConvert.SerializeObject(data.AllKeys.ToDictionary(k => k, k => data[k])));
+
                     var response = wb.UploadValues(url + method, "POST", data);
                     _rawResponse = JsonPrettify(Encoding.UTF8.GetString(response));
 
@@ -93,6 +73,19 @@ namespace NSAPI
             }
 
             return JsonConvert.DeserializeObject<dynamic>(_rawResponse);
+        }
+
+        /// <summary>
+        /// Odwołuje się do serwera danych i pobiera informacje poprzez plik JSON. Wykonuje funkcje bezparametrowe
+        /// </summary>
+        /// <param name="method">Nazwa funkcji do wykonania</param>
+        /// <returns>Dynamiczny obiekt zawsze z własciwościami:
+        /// Data (paczka z danymi), 
+        /// Info (Informacja w postaci tekstowej, np opis błędu),
+        /// Status (status wykonania: ERROR lub OK)</returns>
+        public static dynamic Query(string method)
+        {
+            return Query(method, new NameValueCollection());
         }
 
         /// <summary>
@@ -109,23 +102,22 @@ namespace NSAPI
             //Otwarcie strumienia zapisu wraz z obowiązkowym jego zamknięciem po wykonaniu wszystkich operacji
             using (StreamWriter sr = new StreamWriter("C:\\NSAPI\\Api.log", true))
             {
-                Message m = new Message(DateTime.Now.ToString() + " :: " + v + "\r\n");
-                sr.WriteLine(m.Body);
+                sr.WriteLine(DateTime.Now.ToString() + " :: " + v);
 
-                OnLogChanged(new MessageEventArgs(m));
+                OnLogChanged(new MessageEA(DateTime.Now.ToString() + " :: " + v));
             }
         }
 
         /// <summary>
         /// Zdarzenie wywoływane w momencie zapisywania informacji o logach
         /// </summary>
-        public static event EventHandler<MessageEventArgs> LogChanged;
+        public static event EventHandler<MessageEA> LogChanged;
 
         /// <summary>
         /// Wywołanie zdarzenia informującego o aktualnym postępie prac
         /// </summary>
         /// <param name="e"></param>
-        public static void OnLogChanged(MessageEventArgs e)
+        private static void OnLogChanged(MessageEA e)
         {
             LogChanged?.Invoke(new object(), e);
         }
