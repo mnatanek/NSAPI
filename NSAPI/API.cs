@@ -16,6 +16,10 @@ namespace NSAPI
         private static string url = "https://n-soft.pl/NSAPI/";
 
         private static string _rawResponse;
+
+        /// <summary>
+        /// Przechowuje informacje odebrane z serwera w postaci JSON
+        /// </summary>
         public static string RawResponse
         {
             get { return _rawResponse; }
