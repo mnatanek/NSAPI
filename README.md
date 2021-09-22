@@ -78,25 +78,23 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
 
 </details>
 
+### Obsługa obiektów
+
+Aktualnie dostępne są obiekty typu **USER**
+
+Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiadają funkcje:
+* get - pobieranie danych wg id
+* put - dodawanie (gdy ide nie istnieje lub nie ma takiego w bazie) lub aktualizowanie danych (gdy istnieje wskazany id)
+* del - usuwanie danych wg określonego id
+* filter - Filtrowanie danych wg własnych parametrów
+
 ### Obsługa użytkowników
 
-
-+ <details><summary>USER.put</summary>
++ <details><summary>OBJECT.put</summary>
 
   Dodaje nowego lub edytuje istniejącego użytkownika. Warunkiem edycji jest podanie parametru id > 0
 
   *Obiekt oczekiwany:*
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  id | int | Identyfikator użytkownika
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-
-  *Obiekt zwracany:*
 
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
@@ -127,7 +125,7 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
   
 </details>
 
-+ <details><summary>USER.get</summary>
++ <details><summary>OBJECT.get</summary>
 
   Zwraca istniejącego użytkownika
   
@@ -136,32 +134,50 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
   id * | int | Identyfikator użytkownika wymagany
-  
-  *Obiekt zwracany:*
-  
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  id | int | Identyfikator użytkownika
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-  
+    
 </details>
 
-+ <details><summary>USER.login</summary>
++ <details><summary>OBJECT.filter</summary>
   
-  weryfikacja danych logowania
+  Filtrowanie danych połączone z sortowaniem i limitowaniem.<br>
+  Ogólnie zasady są takie same jak w MySQL
   
   *Obiekt oczekiwany:*
   
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
-  username * | string | Nazwa użytkownika
-  password * | string | Hasło użytkownika
+  where | NameValueCollection | Parametry wyszukiwania, gdzie <br> *Name* = "nazwa parametru" <br> *Value* = "operator wartość"<br>np: *{ "id", "> 3" }*
+  limit | string | Ile rekodrów ma zwracać, od którego zacząć <br>np: *"10, 0"*
+  order | string[] | Lista parametrów w kolejności sortowania łącznie z kierunkiem<br>np: *["id ASC", "firstname DESC"]*
+
+</details>
+
+### Opis dostępnych obiektów
+
++ <details><summary>API</summary>
+    Dostępne funkcje: **version**
+  </details
   
-  *Obiekt zwracany:*
++ <details><summary>Obiekt USER</summary>
+
+  ### Dostępne funkcje:
+  **get, put, del, filter, login**
+  
+  
+  + <details><summary>USER.login</summary>
+
+    weryfikacja danych logowania
+
+    *Obiekt oczekiwany:*
+
+    Nazwa parametru | Typ danych | Opis
+    --------------- | ---------- | ----
+    username * | string | Nazwa użytkownika
+    password * | string | Hasło użytkownika
+
+  </details>
+  
+  ### Struktura
   
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
@@ -171,5 +187,5 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
   firstname | string | Imię
   lastname | string | Nazwisko
   type | int | Typ użytkownika
-
-</details>
+  
+  </details
