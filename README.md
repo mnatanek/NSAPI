@@ -81,42 +81,15 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
 ### Obsługa użytkowników
 
 
-+ <details><summary>USER.add</summary>
++ <details><summary>USER.put</summary>
 
-  Dodaje nowego użytkownika
+  Dodaje nowego lub edytuje istniejącego użytkownika. Warunkiem edycji jest podanie parametru id > 0
 
   *Obiekt oczekiwany:*
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-
-  *Obiekt zwracany:*
 
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
   id | int | Identyfikator użytkownika
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-
-</details>
-
-+ <details><summary>USER.edit</summary>
-
-  Edytuje istniejącego użytkownika
-
-  *Obiekt oczekiwany:*
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  id * | int | Identyfikator użytkownika wymagany
   username | string | Nazwa użytkownika
   password | string | Hasło użytkownika
   firstname | string | Imię
@@ -151,6 +124,29 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
   id | int | Identyfikator użytkownika
+  
+</details>
+
++ <details><summary>USER.get</summary>
+
+  Zwraca istniejącego użytkownika
+  
+  *Obiekt oczekiwany:*
+  
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id * | int | Identyfikator użytkownika wymagany
+  
+  *Obiekt zwracany:*
+  
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator użytkownika
+  username | string | Nazwa użytkownika
+  password | string | Hasło użytkownika
+  firstname | string | Imię
+  lastname | string | Nazwisko
+  type | int | Typ użytkownika
   
 </details>
 
