@@ -88,7 +88,7 @@ Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiad
 * del - usuwanie danych wg określonego id
 * filter - Filtrowanie danych wg własnych parametrów
 
-### Obsługa użytkowników
+### Obsługa obiektów
 
 + <details><summary>OBJECT.put</summary>
 
@@ -107,7 +107,7 @@ Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiad
 
 </details>
 
-+ <details><summary>USER.del</summary>
++ <details><summary>OBJECT.del</summary>
 
   Usuwa istniejącego użytkownika
   
