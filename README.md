@@ -1,4 +1,4 @@
-# NS-API [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+# NSAPI [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 Projekt na potrzeby szkoleń z przedmiotu PAI
 
 **UWAGI do dokumentacji!**
