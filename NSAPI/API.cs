@@ -56,7 +56,7 @@ namespace NSAPI
         /// Status (status wykonania: ERROR lub OK)</returns>
         public static dynamic Query(string method, Params data)
         {
-            if (method != "API.token" && license == null)
+            if (method != "API.auth" && license == null)
                 method = "API.no_license";
 
             if (license != null)
@@ -77,7 +77,7 @@ namespace NSAPI
 
                     Log("RESPONSE DATA: " + Encoding.UTF8.GetString(response));
 
-                    if (method == "API.token")
+                    if (method == "API.auth")
                     {
                         dynamic l = JsonConvert.DeserializeObject<dynamic>(_rawResponse);
 
