@@ -148,7 +148,7 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
     
     Nazwa parametru | Typ danych | Opis
     --------------- | ---------- | ----
-    username | string | Nazwa użytkownika z dostępem do API
+    code | string | Nazwa użytkownika z dostępem do API
     token | string | Token przyznany w trakcie udzialania licencji dostępowej
     
   </details>
