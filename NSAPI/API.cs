@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Specialized;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace NSAPI
 {
@@ -53,7 +52,7 @@ namespace NSAPI
         /// Data (paczka z danymi), 
         /// Info (Informacja w postaci tekstowej, np opis błędu),
         /// Status (status wykonania: ERROR lub OK)</returns>
-        public static dynamic Query(string method, NameValueCollection data)
+        public static dynamic Query(string method, Params data)
         {
             _rawResponse = "";
 
@@ -89,7 +88,7 @@ namespace NSAPI
         /// Status (status wykonania: ERROR lub OK)</returns>
         public static dynamic Query(string method)
         {
-            return Query(method, new NameValueCollection());
+            return Query(method, new Params());
         }
 
         /// <summary>

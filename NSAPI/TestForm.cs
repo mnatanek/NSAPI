@@ -32,7 +32,7 @@ namespace NSAPI
 
             //Nowa kolekcja Nazwa/Wartość
             //Ma słuzyć jako parametry typu POST do obsługi danych
-            NameValueCollection Parameters = new NameValueCollection();
+            Params Parameters = new Params();
 
             //Wszystkie elementy z grida, przenosimy do kolekcji Parameters
             foreach (DataGridViewRow row in dgvParams.Rows)
