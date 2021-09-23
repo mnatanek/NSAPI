@@ -78,24 +78,23 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
 
 </details>
 
-### Obsługa użytkowników
+### Obsługa obiektów
 
+Aktualnie dostępne są obiekty typu **USER**
 
-+ <details><summary>USER.add</summary>
+Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiadają funkcje:
+* get - pobieranie danych wg id
+* put - dodawanie (gdy ide nie istnieje lub nie ma takiego w bazie) lub aktualizowanie danych (gdy istnieje wskazany id)
+* del - usuwanie danych wg określonego id
+* filter - Filtrowanie danych wg własnych parametrów
 
-  Dodaje nowego użytkownika
+### Obsługa obiektów
+
++ <details><summary>OBJECT.put</summary>
+
+  Dodaje nowego lub edytuje istniejącego użytkownika. Warunkiem edycji jest podanie parametru id > 0
 
   *Obiekt oczekiwany:*
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-
-  *Obiekt zwracany:*
 
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
@@ -108,35 +107,7 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
 
 </details>
 
-+ <details><summary>USER.edit</summary>
-
-  Edytuje istniejącego użytkownika
-
-  *Obiekt oczekiwany:*
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  id * | int | Identyfikator użytkownika wymagany
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-
-  *Obiekt zwracany:*
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  id | int | Identyfikator użytkownika
-  username | string | Nazwa użytkownika
-  password | string | Hasło użytkownika
-  firstname | string | Imię
-  lastname | string | Nazwisko
-  type | int | Typ użytkownika
-
-</details>
-
-+ <details><summary>USER.del</summary>
++ <details><summary>OBJECT.del</summary>
 
   Usuwa istniejącego użytkownika
   
@@ -154,18 +125,59 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
   
 </details>
 
-+ <details><summary>USER.login</summary>
-  
-  weryfikacja danych logowania
++ <details><summary>OBJECT.get</summary>
+
+  Zwraca istniejącego użytkownika
   
   *Obiekt oczekiwany:*
   
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
-  username * | string | Nazwa użytkownika
-  password * | string | Hasło użytkownika
+  id * | int | Identyfikator użytkownika wymagany
+    
+</details>
+
++ <details><summary>OBJECT.filter</summary>
   
-  *Obiekt zwracany:*
+  Filtrowanie danych połączone z sortowaniem i limitowaniem.<br>
+  Ogólnie zasady są takie same jak w MySQL
+  
+  *Obiekt oczekiwany:*
+  
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  where | NameValueCollection | Parametry wyszukiwania, gdzie <br> *Name* = "nazwa parametru" <br> *Value* = "operator wartość"<br>np: *{ "id", "> 3" }*
+  limit | string | Ile rekodrów ma zwracać, od którego zacząć <br>np: *"10, 0"*
+  order | string[] | Lista parametrów w kolejności sortowania łącznie z kierunkiem<br>np: *["id ASC", "firstname DESC"]*
+
+</details>
+
+### Opis dostępnych obiektów
+
++ <details><summary>API</summary>
+    Dostępne funkcje: **version**
+  </details
+  
++ <details><summary>Obiekt USER</summary>
+
+  ### Dostępne funkcje:
+  **get, put, del, filter, login**
+  
+  
+  + <details><summary>USER.login</summary>
+
+    weryfikacja danych logowania
+
+    *Obiekt oczekiwany:*
+
+    Nazwa parametru | Typ danych | Opis
+    --------------- | ---------- | ----
+    username * | string | Nazwa użytkownika
+    password * | string | Hasło użytkownika
+
+  </details>
+  
+  ### Struktura
   
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
@@ -175,5 +187,5 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
   firstname | string | Imię
   lastname | string | Nazwisko
   type | int | Typ użytkownika
-
-</details>
+  
+  </details
