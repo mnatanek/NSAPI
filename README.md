@@ -36,8 +36,20 @@ Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiad
 * filter - Filtrowanie danych wg wskazanych parametrów
 
 Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie po kropce funkcji, która ma zostać wykonana. W przypadku podania nieobsługiwanego obiektu lub funkcji zostanie zwrócony stosowny komunikat.
-<br>Przykład wywołania np:
+<br>
+<br>W celu uzyskania dostępu to API, przed jakąkolwiek pracą należy użyć funkcji autoryzującej np:
 
+  ```cs
+  Params p = new Params { 
+    { "code", "N-SOFT" }, 
+    { "key", "{D0950D32-0AAF-46BD-9AC2-93AF7290E6F6}"
+  };
+    
+  dynamic d = API.Query("API.auth", p);
+  ```
+  
+  <br>Przykład wywołania innych funkcji np:
+  
   ```cs
   dynamic d = API.Query("API.version");
   ```
@@ -140,9 +152,9 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
     
   </details>
   
-  <details><summary>API.token</summary>
+  <details><summary>API.auth</summary>
     
-    Ustawia token uzyskany w ramach licencji na użytkowanie aplikacji. Bez ustawienia tokena, dalsza praca będzie bezskuteczna.
+    Uzyskuje dostęp do API
     
     *Obiekt oczekiwany:*
     
