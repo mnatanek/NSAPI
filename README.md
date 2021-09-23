@@ -1,6 +1,4 @@
-# NSAPI 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![GitHub watchers](https://img.shields.io/github/watchers/mnatanek/nsapi?style=social)
+# NSAPI [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![GitHub watchers](https://img.shields.io/github/watchers/mnatanek/nsapi?style=social)
 
 
 Projekt na potrzeby szkoleń z przedmiotu PAI
@@ -29,7 +27,7 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
 
 ### Obsługa obiektów
 
-Aktualnie dostępne są obiekty typu **API, USER**
+Aktualnie dostępne są obiekty typu **CONFIG, USER**
 
 Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiadają funkcje:
 * get - Pobieranie danych wg wskazanego parametru id
@@ -136,14 +134,40 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   
   ### Dostępne funkcje: 
   
-  + <details><summary>API.version</summary>
-  
+  <details><summary>API.version</summary>
+    
     Zwraca informacje o aktualnie używanej wersji API  
-
+    
+  </details>
+  
+  <details><summary>API.token</summary>
+    
+    Ustawia token uzyskany w ramach licencji na użytkowanie aplikacji. Bez ustawienia tokena, dalsza praca będzie bezskuteczna.
+    
+    *Obiekt oczekiwany:*
+    
+    Nazwa parametru | Typ danych | Opis
+    --------------- | ---------- | ----
+    username | string | Nazwa użytkownika z dostępem do API
+    token | string | Token przyznany w trakcie udzialania licencji dostępowej
+    
   </details>
   
 </details>
-  
+
++ <details><summary>Obiekt CONFIG</summary>
+
+  ### Struktura
+
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator użytkownika
+  type | string | Rodzaj informacji
+  name | string | Nazwa ustawienia
+  value | string | Wartość
+
+</details>
+
 + <details><summary>Obiekt USER</summary>
 
   ### Struktura
