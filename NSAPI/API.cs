@@ -16,6 +16,8 @@ namespace NSAPI
 
         private static string _rawResponse;
 
+        private static object license = null;
+
         /// <summary>
         /// Przechowuje informacje odebrane z serwera w postaci JSON
         /// </summary>
@@ -54,6 +56,12 @@ namespace NSAPI
         /// Status (status wykonania: ERROR lub OK)</returns>
         public static dynamic Query(string method, Params data)
         {
+            if (method != "API.token" && license == null)
+                method = "API.no_license";
+
+            if (license != null)
+                data.Add("license_token", Convert.ToString(((dynamic)license).Key));
+
             _rawResponse = "";
 
             using (var wb = new WebClient())
@@ -68,6 +76,13 @@ namespace NSAPI
                     _rawResponse = JsonPrettify(Encoding.UTF8.GetString(response));
 
                     Log("RESPONSE DATA: " + Encoding.UTF8.GetString(response));
+
+                    if (method == "API.token")
+                    {
+                        dynamic l = JsonConvert.DeserializeObject<dynamic>(_rawResponse);
+
+                        license = (l.Status == "ERROR") ? null : l.Data;
+                    }
                 }
                 catch (Exception e)
                 {
