@@ -60,7 +60,7 @@ namespace NSAPI
                 method = "API.no_license";
 
             if (license != null)
-                data.Add("license_token", Convert.ToString(((dynamic)license).Key));
+                data.Add("ownertoken", Convert.ToString(((dynamic)license).Key));
 
             _rawResponse = "";
 
