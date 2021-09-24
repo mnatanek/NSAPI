@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSAPI", "NSAPI\NSAPI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSAPI DevTest", "NSAPI DevTest\NSAPI DevTest.csproj", "{708DBE4D-B7FA-405A-9ADF-FFFAFA724221}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSAPIm", "NSAPIMobile\NSAPIm.csproj", "{F99326D2-6229-49A4-97C1-B1B6C80AF41F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{708DBE4D-B7FA-405A-9ADF-FFFAFA724221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{708DBE4D-B7FA-405A-9ADF-FFFAFA724221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{708DBE4D-B7FA-405A-9ADF-FFFAFA724221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F99326D2-6229-49A4-97C1-B1B6C80AF41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99326D2-6229-49A4-97C1-B1B6C80AF41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99326D2-6229-49A4-97C1-B1B6C80AF41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99326D2-6229-49A4-97C1-B1B6C80AF41F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
