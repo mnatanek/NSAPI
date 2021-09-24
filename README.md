@@ -191,6 +191,13 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   password | string | Hasło użytkownika
   firstname | string | Imię
   lastname | string | Nazwisko
+  email | string | Adres e-mail
+  pesel | string | Pesel
+  pin | string | Pin
+  phone | string | Telefon
+  street | string | Ulica
+  city | string | Miejscowość
+  postcode | string | Kod pocztowy
   
   ### Dostępne funkcje:
   
