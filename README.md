@@ -41,7 +41,7 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   ```cs
   Params p = new Params { 
     { "code", "N-SOFT" }, 
-    { "key", "{D0950D32-0AAF-46BD-9AC2-93AF7290E6F6}"
+    { "key", "{D0950D32-0AAF-46BD-9AC2-93AF7290E6F6}" }
   };
     
   dynamic d = API.Query("API.auth", p);
