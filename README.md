@@ -87,7 +87,8 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
   where | Params | Parametry wyszukiwania, gdzie <br> *Name* = "nazwa parametru" <br> *Value* = "operator wartość"<br>np: *{ "id", "> 3" }*
-  limit | string | Ile rekodrów ma zwracać, od którego zacząć <br>np: *"10, 0"*
+  limit | int | Ile rekodrów ma zwracać <br>np: *10*
+  offset | int | Od którego ma zacząć zwracać (domyślnie 0)<br>np: *0*
   order | string[] | Lista parametrów w kolejności sortowania łącznie z kierunkiem sortowania<br>np: *["id ASC", "firstname DESC"]*
 
 </details>
