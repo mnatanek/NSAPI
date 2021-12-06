@@ -214,4 +214,20 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
 
   </details>
 
++ <details><summary>Obiekt Message</summary>
+
+  ### Struktura
+
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator użytkownika
+  type | string | Rodzaj wiadomości
+  text | string | Treść wiadomości
+  subject | string | Temat rozmowy
+  userid | int | Identyfikator użytkownika
+  useridfriend | int | Identyfikator użytkownika friend
+  status | bool | Status
+  
+</details>
+
 </details>
