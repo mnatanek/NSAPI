@@ -26,7 +26,7 @@ Status | enum | **SUCCESS** - w przypadku sukcesu<br> **ERROR** - w przypadku wy
 
 ### Obsługa obiektów
 
-Aktualnie dostępne są obiekty typu **CONFIG, USER**
+Aktualnie dostępne są obiekty typu **CONFIG, USER, MESSAGE**
 
 Wszystkie wymienione powyżej obiekty obługiwane są w ten sam sposób i posiadają funkcje:
 * get - Pobieranie danych wg wskazanego parametru id
@@ -214,7 +214,7 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
 
   </details>
 
-+ <details><summary>Obiekt Message</summary>
++ <details><summary>Obiekt MESSAGE</summary>
 
   ### Struktura
 
