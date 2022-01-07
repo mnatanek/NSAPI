@@ -177,7 +177,7 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   userid | int | Identyfikator użytkownika
   no | string | Numer karty kredytowej
   expirationdate | datetime | Data i czas wygaśnięcia w formacie: RRRR-MM-DD GG:MM:SS
-  type | tinyint | Typ karty
+  type | tinyint | Typ karty <br> *0 - BLIK* <br> *1 - JUNIOR* <br> *2 - VISA* <br> *3 - MASTERCARD*
   status | tinyint | Status karty
   pin | int | Pin do karty
   bankno | string | Numer konta bankowego
@@ -250,7 +250,7 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   street | string | Ulica
   city | string | Miejscowość
   postcode | string | Kod pocztowy
-  status | tinyint | Status konta
+  status | tinyint | Status konta użytkownika <br> *0 - Aktywne* <br> *1 - Nieaktywne (wartość domyślna)*
   ballance | double | Saldo konta
   valute | int | Waluta
   
