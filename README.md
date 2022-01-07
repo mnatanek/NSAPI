@@ -167,17 +167,68 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   
 </details>
 
++ <details><summary>Obiekt CARDS</summary>
+
+  ### Struktura
+
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator karty
+  userid | int | Identyfikator użytkownika
+  no | string | Numer karty kredytowej
+  expirationdate | datetime | Data i czas wygaśnięcia w formacie: RRRR-MM-DD GG:MM:SS
+  type | tinyint | Typ karty
+  status | tinyint | Status karty
+  pin | int | Pin do karty
+  bankno | string | Numer konta bankowego
+  ballance | double | Saldo karty
+
+</details>
+
 + <details><summary>Obiekt CONFIG</summary>
 
   ### Struktura
 
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
-  id | int | Identyfikator użytkownika
+  id | int | Identyfikator
   type | string | Rodzaj informacji
   name | string | Nazwa ustawienia
   value | string | Wartość
 
+</details>
+
++ <details><summary>Obiekt CREDIT</summary>
+
+  ### Struktura
+
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator
+  type | string | Rodzaj kredytu
+  startdate | string | Data i czas uruchomienia w formacie: RRRR-MM-DD GG:MM:SS
+  expirationdate | datetime | Data i czas wygaśnięcia w formacie: RRRR-MM-DD GG:MM:SS
+  userid1 | int | Identyfikator użytkownika 1 (relacja do obiektu USERS)
+  userid2 | int | Identyfikator użytkownika 2 (relacja do obiektu USERS)
+  ballance | double | Kwota kredytu
+
+</details>
+
++ <details><summary>Obiekt MESSAGE</summary>
+
+  ### Struktura
+
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator użytkownika
+  type | string | Rodzaj wiadomości
+  text | string | Treść wiadomości
+  subject | string | Temat rozmowy
+  userid | int | Identyfikator użytkownika
+  useridfriend | int | Identyfikator użytkownika friend
+  status | bool | Status
+  date | string | Data i czas wysłania informacji w formacie: RRRR-MM-DD GG:MM:SS
+  
 </details>
 
 + <details><summary>Obiekt USER</summary>
@@ -199,6 +250,9 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   street | string | Ulica
   city | string | Miejscowość
   postcode | string | Kod pocztowy
+  status | tinyint | Status konta
+  ballance | double | Saldo konta
+  valute | int | Waluta
   
   ### Dostępne funkcje:
   
@@ -214,21 +268,5 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
     password * | string | Hasło użytkownika
 
   </details>
-
-+ <details><summary>Obiekt MESSAGE</summary>
-
-  ### Struktura
-
-  Nazwa parametru | Typ danych | Opis
-  --------------- | ---------- | ----
-  id | int | Identyfikator użytkownika
-  type | string | Rodzaj wiadomości
-  text | string | Treść wiadomości
-  subject | string | Temat rozmowy
-  userid | int | Identyfikator użytkownika
-  useridfriend | int | Identyfikator użytkownika friend
-  status | bool | Status
-  
-</details>
 
 </details>
