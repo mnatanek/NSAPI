@@ -205,12 +205,14 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   Nazwa parametru | Typ danych | Opis
   --------------- | ---------- | ----
   id | int | Identyfikator
-  type | string | Rodzaj kredytu
+  type | int | Rodzaj kredytu
   startdate | string | Data i czas uruchomienia w formacie: RRRR-MM-DD GG:MM:SS
   expirationdate | datetime | Data i czas wygaśnięcia w formacie: RRRR-MM-DD GG:MM:SS
   userid1 | int | Identyfikator użytkownika 1 (relacja do obiektu USERS)
   userid2 | int | Identyfikator użytkownika 2 (relacja do obiektu USERS)
   ballance | double | Kwota kredytu
+  secure | string | opis zabezpieczenia kredytu
+  info | string | informacja na co zostatnie sfinansowany kredyt
 
 </details>
 
@@ -228,6 +230,7 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   useridfriend | int | Identyfikator użytkownika friend
   status | bool | Status
   date | string | Data i czas wysłania informacji w formacie: RRRR-MM-DD GG:MM:SS
+  expirationdate | string | Data i czas wygaśnięcia informacji w formacie: RRRR-MM-DD GG:MM:SS
   
 </details>
 
