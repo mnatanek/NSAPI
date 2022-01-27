@@ -213,6 +213,8 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   ballance | double | Kwota kredytu
   secure | string | opis zabezpieczenia kredytu
   info | string | informacja na co zostatnie sfinansowany kredyt
+  repayment | double | Kwota spłaty kredytu
+  amount | double | Kwota w lokacie
 
 </details>
 
