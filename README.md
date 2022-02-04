@@ -236,6 +236,22 @@ Wywałanie funkcji dla danego obiektu polega na wpisaniu jego nazwy a następnie
   
 </details>
 
++ <details><summary>Obiekt TRANSFER</summary>
+
+  ### Struktura
+
+  Nazwa parametru | Typ danych | Opis
+  --------------- | ---------- | ----
+  id | int | Identyfikator transakcji
+  type | int | Rodzaj przelewu  
+  date | string | Data i czas wysłania informacji w formacie: RRRR-MM-DD GG:MM:SS  
+  outid | int | Id użytkownika wysyłającego przelew
+  inid | int | Id użytkownika otrzymującego przelew
+  description | string | Temat rozmowy
+  amount | double | Kwota przelewu
+  
+</details>
+
 + <details><summary>Obiekt USER</summary>
 
   ### Struktura
